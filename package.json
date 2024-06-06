@@ -5,14 +5,15 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
-    "start:dev":"nodemon --exec ts-node src/server.ts",
-    "train":"nodemon --exec ts-node train.ts",
-    "build":"tsc",
+    "start:dev": "nodemon --exec ts-node src/server.ts",
+    "train": "nodemon --exec ts-node train.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MIT",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "moment": "^2.29.4"
   },
   "devDependencies": {
