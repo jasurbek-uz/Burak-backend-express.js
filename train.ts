@@ -3,14 +3,14 @@
 // H2-TASK: 
 // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 // MASALAN: getDigits("m14i1t") return qiladi "141"
- const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-function getDigits(str: string){
-    const arr  = str.split ("");
-    return arr.filter(value => digits.includes(value) == true ).join('');
+//  const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+// function getDigits(str: string){
+//     const arr  = str.split ("");
+//     return arr.filter(value => digits.includes(value) == true ).join('');
     
-}
+// }
 
-console.log(getDigits("megamen129as432as8945"));
+// console.log(getDigits("megamen129as432as8945"));
 
 
 

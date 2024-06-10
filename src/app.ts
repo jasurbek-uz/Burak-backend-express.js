@@ -1,13 +1,16 @@
-import express from "express";
-import path from "path";
-import router from "./router";
-import routerAdmin from "./routerAdmin"
+import express from "express"; // express frameworkini chaqirish 
+import path from "path"; // path qilish 
+import router from "./router"; // routerni chaqirish 
+import routerAdmin from "./routerAdmin" // routeradmini chaqirish 
+import morgan from "morgan";
+import { MORGAN_FORMAT } from "./libs/types/config";
 
 // 1-entrance
-const app = express();
-app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({ extended:true }));
-app.use(express.json());
+const app = express(); // express 
+app.use(express.static(path.join(__dirname, "public"))); // public folderni datani chaqirish 
+app.use(express.urlencoded({ extended:true })); // json html datani chaqirish
+app.use(express.json()); // json datalarni chaqirish
+app.use(morgan(MORGAN_FORMAT));
 
 // 2-session
 // 3-views

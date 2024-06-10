@@ -5,6 +5,9 @@ import  MemberService from "../models/Member.service"
 const restaurantController:T ={};
 restaurantController.goHome =(req:Request, res:Response) =>{
     try{
+        console.log('gohome');
+        // logic
+        // service model 
         res.send("homepage");
     }
     catch (err) {
