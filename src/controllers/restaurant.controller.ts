@@ -1,64 +1,73 @@
-import { Request, Response} from "express";
-import {T} from "../libs/types/common";
-import  MemberService from "../models/Member.service"
+// we always create controllers using Object
+
+import { Request, Response } from "express"; // Import Request and Response types from Express
+import { T } from "../libs/types/common"; // Import common types
+import MemberService from "../models/Member.service"; // Import MemberService model
 import { MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
-const restaurantController:T ={};
-restaurantController.goHome =(req:Request, res:Response) =>{
-    try{
-        console.log('gohome');
-        // logic
-        // service model 
-        res.send("homepage");
-    }
-    catch (err) {
-    console.log("Error, gohome:",err);
-    }
+const restaurantController: T = {}; // Define an empty object for restaurant controller
+
+// creating goHome method
+restaurantController.goHome = (req: Request, res: Response) => {
+  try {
+    console.log("goHome");
+    res.send("Home Page");
+    // response can be send | JSON | end | Redirect | render
+  } catch (err) {
+    console.log("Error, go home:", err); // Log error if any
+  }
 };
 
-restaurantController.getLogin =(req:Request, res:Response) =>{
-    try{
-        res.send("Login page");
-    }
-    catch (err) {
-    console.log("Error, getLogin:",err);
-    }
+restaurantController.getLogin = (req: Request, res: Response) => {
+  try {
+    console.log("Login Page"); // prints in terminal when it clicked on web-page
+    // Logic
+    //Service model
+    // ..
+    // if error occurs immediately it catches error before executing next line
+    res.send("Login Page"); // Send "Login Page" response
+  } catch (err) {
+    console.log("Error, Login Page:", err); // Log error if any
+  }
 };
 
-restaurantController.getSignup =(req:Request, res:Response) =>{
-    try{
-        res.send("Signup page");
-    }
-    catch (err) {
-    console.log("Error, getSignup:",err);
-    }
+restaurantController.getSignup = (req: Request, res: Response) => {
+  try {
+    console.log("SignupPage");
+    res.send("SignUp Page"); // Send "SignUp Page" response
+  } catch (err) {
+    console.log("Error, SignUp Page:", err); // Log error if any
+  }
 };
-restaurantController.processLogin =(req:Request, res:Response) =>{
-    try{
-        console.log("processLogin");
-    }
-    catch (err) {
-    console.log("Error, processLogin:",err);
-    }
+
+restaurantController.processLogin = (req: Request, res: Response) => {
+  try {
+    console.log("processLogin");
+    res.send("Done");
+  } catch (err) {
+    console.log("Error, SignUp Page:", err);
+  }
 };
-restaurantController.processSignup =(req:Request, res:Response) =>{
-    try{
-        console.log("processSignup");
-        console.log("body:",req.body);
 
+restaurantController.processSignup = async (req: Request, res: Response) => {
+  try {
+    console.log("processSignup");
 
+    const newMember: MemberInput = req.body;
+    newMember.memberType = MemberType.RESTAURANT;
 
-       const newMember:MemberInput = req.body;
-       newMember.memberType = MemberType.RESTAURANT;
+    const memberService = new MemberService();
+    const result = await memberService.processSignup(newMember);
 
-        const memberService = new MemberService();
-        const result =  memberService.processSignup(newMember);
-
-       res.send("result");
-    }
-    catch (err) {
-    console.log("Error, processSignup:",err);
-    }
+    res.send(result);
+  } catch (err) {
+    console.log("Error, processSignup:", err); // Log error if any
+    res.send(err);
+  }
 };
-export default restaurantController;
+
+export default restaurantController; // Export the restaurant controller for use in routers
+
+
+
