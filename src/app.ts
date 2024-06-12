@@ -1,7 +1,7 @@
 import express from "express"; // express frameworkini chaqirish 
 import path from "path"; // path qilish 
 import router from "./router"; // routerni chaqirish 
-import routerAdmin from "./routerAdmin" // routeradmini chaqirish 
+import routerAdmin from "./router-Admin" // routeradmini chaqirish 
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/types/config";
 
