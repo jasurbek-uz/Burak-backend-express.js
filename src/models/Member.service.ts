@@ -9,6 +9,7 @@ class MemberService {
       this.memberModel = MemberModel;
    }
    
+  
    public async processSignup(input: MemberInput): Promise<Member> {
      
        const exist = await this.memberModel
@@ -18,7 +19,8 @@ class MemberService {
 
       try {
          const result = await this.memberModel.create(input);
-         return result;
+         result.memberPassword = "";
+         return (result) as Member
       } catch (err) {
          throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
       }
