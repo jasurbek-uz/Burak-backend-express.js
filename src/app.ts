@@ -3,7 +3,7 @@ import path from "path"; // path qilish
 import router from "./router"; // routerni chaqirish 
 import routerAdmin from "./router-Admin" // routeradmini chaqirish 
 import morgan from "morgan";
-import { MORGAN_FORMAT } from "./libs/types/config";
+import { MORGAN_FORMAT } from "./libs/config";
 
 // 1-entrance
 const app = express(); // express 
