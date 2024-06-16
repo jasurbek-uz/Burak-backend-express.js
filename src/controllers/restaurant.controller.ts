@@ -41,14 +41,18 @@ restaurantController.processLogin = async(req: Request, res: Response) => {
     console.log("processLogin");
     // admin login process
 
-    console.log ("body:" ,req.body);
+    console.log ("req.body:" ,req.body);
     const input:LoginInput =req.body;
+    console.log("input:", input);
+
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
+    console.log ("result:", result);
 
     res.send("result");
   } catch (err) {
     console.log("Error, SignUp Page:", err);
+    res.send(err);
   }
 };
 
