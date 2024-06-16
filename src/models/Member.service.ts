@@ -31,7 +31,7 @@ class MemberService {
          throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
       }
    }
-   //business logic 42 lesson
+   //business logic 42 lesson and admin login 
    public async processLogin(input: LoginInput): Promise<Member> {
     const member = await this.memberModel
     .findOne(
