@@ -13,7 +13,6 @@ restaurantController.goHome = (req: Request, res: Response) => {
   try {
     console.log("goHome");
     res.send("Home Page");
-    // response can be send | JSON | end | Redirect | render
   } catch (err) {
     console.log("Error, go home:", err); // Log error if any
   }
@@ -41,11 +40,11 @@ restaurantController.processLogin = async(req: Request, res: Response) => {
   try {
     console.log("processLogin");
     // admin login process
+
     console.log ("body:" ,req.body);
     const input:LoginInput =req.body;
     const memberService = new MemberService();
     const result = await memberService.processLogin(input);
-
 
     res.send("result");
   } catch (err) {

@@ -10,7 +10,6 @@ class MemberService {
       this.memberModel = MemberModel;
    }
    
-  
    public async processSignup(input: MemberInput): Promise<Member> {
      
        const exist = await this.memberModel
@@ -40,7 +39,6 @@ class MemberService {
     .exec();
     if(!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
-
     const isMatch = await bcrypt.compare(
       input.memberPassword, 
       member.memberPassword);
@@ -50,10 +48,9 @@ class MemberService {
     if(!isMatch) {
       throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
-      
-    const result = await this.memberModel.findById(member._id).exec();
-
-    console.log("member:",member);
+       const result = await this.memberModel.findById(member._id).exec();
+      // return await this.memberModel.findById(member._id).exec();
+   //  console.log("member:",member);
     return (member) as Member 
    }
    // 42 lesson end 
