@@ -1,3 +1,38 @@
+ //TASK I:
+// Shunday function tuzing, u parametrdagi array ichida eng ko'p
+// takrorlangan raqamni topib qaytarsin.
+
+const allNumber = (numbers: number[]) => {
+  let count = 0;
+  let candidate = numbers[0]; 
+
+  for (const num of numbers) {
+    if (count === 0) {
+      candidate = num;
+    }
+    count += (num === candidate) ? 1 : -1;
+  }
+  // Check  majority after the loop
+  count = 0;
+  for (const num of numbers) {
+    if (num === candidate) {
+      count++;
+    }
+  }
+  if (count > numbers.length / 5) {
+    return candidate; 
+  } else {
+    return null; 
+  }
+};
+
+const result_2 = allNumber([1, 2, 3, 4, 5, 3, 3]);
+console.log("result:", result_2); // Output: result: 3
+
+
+
+
+
 
 
 // H2-TASK: 
@@ -11,28 +46,6 @@
 // }
 
 // console.log(getDigits("megamen129as432as8945"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // G-TASK: 
 // Shunday function tuzingki unga integerlardan iborat array pass bolsin va function bizga osha arrayning eng katta qiymatiga tegishli birinchi indexni qaytarsin.
@@ -58,5 +71,4 @@
 //     }
 //     return console.log(p);
 //  }
-//  getPositive([1, -4, 2, 0, 3]);
- 
+  //  getPositive([1, -4, 2, 0, 3]);
