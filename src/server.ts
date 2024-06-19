@@ -13,7 +13,7 @@ mongoose
     
     app.listen(PORT, () => {
       console.info(`Server is running on port: ${PORT}`);    
-      console.info(`admin project on http://localhost:${PORT}/admin \n`)
+      console.info(`Admin project on http://localhost:${PORT}/admin \n`)
     });
     
   })

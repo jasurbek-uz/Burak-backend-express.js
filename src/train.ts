@@ -1,40 +1,76 @@
+
+// J-TASK: 
+// Shunday function yozing, u string qabul qilsin va 
+// string ichidagi eng uzun sozni qaytarsin. MASALAN: 
+// findLongestWord("I come from Uzbekistan") 
+// return "Uzbekistan"
+
+function findLongestWord(str: string) {
+  const longestWord = str.split(" ").reduce((longest, current) => {
+    return current.length > longest.length ? current : longest;
+  }, "");
+  console.log(longestWord);
+}
+
+findLongestWord("I come from Uzbekistan");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //TASK I:
 // Shunday function tuzing, u parametrdagi array ichida eng ko'p
 // takrorlangan raqamni topib qaytarsin.
 
-const allNumber = (numbers: number[]) => {
-    let count = 0;
-    let candidate = numbers[0]; 
+// const allNumber = (numbers: number[]) => {
+//     let count = 0;
+//     let candidate = numbers[0]; 
   
-    for (const num of numbers) {
-      if (count === 0) {
-        candidate = num;
-      }
-      count += (num === candidate) ? 1 : -1;
-    }
-    // Check  majority after the loop
-    count = 0;
-    for (const num of numbers) {
-      if (num === candidate) {
-        count++;
-      }
-    }
-    if (count > numbers.length / 5) {
-      return candidate; 
-    } else {
-      return null; 
-    }
-  };
+//     for (const num of numbers) {
+//       if (count === 0) {
+//         candidate = num;
+//       }
+//       count += (num === candidate) ? 1 : -1;
+//     }
+//     // Check  majority after the loop
+//     count = 0;
+//     for (const num of numbers) {
+//       if (num === candidate) {
+//         count++;
+//       }
+//     }
+//     if (count > numbers.length / 5) {
+//       return candidate; 
+//     } else {
+//       return null; 
+//     }
+//   };
   
-  const result_2 = allNumber([1, 2, 3, 4, 5, 3, 3]);
-  console.log("result:", result_2); // Output: result: 3
+//   const result_2 = allNumber([1, 2, 3, 4, 5, 3, 3]);
+//   console.log("result:", result_2); // Output: result: 3
   
-  
-  
-  
-  
-  
-  
+
   // H2-TASK: 
   // Shunday function tuzing, unga string argument pass bolsin. Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
   // MASALAN: getDigits("m14i1t") return qiladi "141"
