@@ -1,25 +1,27 @@
-import express from "express"; // express frameworkini chaqirish 
-import path from "path"; // path qilish 
-import router from "./router"; // routerni chaqirish 
-import routerAdmin from "./router-Admin" // routeradmini chaqirish 
+import express from "express";
+import path from "path";
+import router from "../src/router";
+import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
 
-// 1-entrance
-const app = express(); // express 
-app.use(express.static(path.join(__dirname, "public"))); // public folderni datani chaqirish 
-app.use(express.urlencoded({ extended:true })); // json html datani chaqirish
-app.use(express.json()); // json datalarni chaqirish
+/** 1-ENTRANCE **/
+const app = express();
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(morgan(MORGAN_FORMAT));
 
-// 2-session
-// 3-views
+/** 2-SESSION **/
+/** 3-VIEWS **/
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-// 4- routers
-app.use("/admin", routerAdmin); //SSR:EJS
-app.use("./", router); //SPA:React
 
-
+/** 4-ROUTERS **/
+// 1 SPA: REACT
+// 2 BSSR: EJS backendda froneendni togridan togri qurib olishda yordam bermoqda
+app.use('/admin', routerAdmin);  //EJS
+app.use('/', router);   // REACT (Middleware Design Pattern)  (kelayotgan requestlarni ruterga yuborishini belgilayabmiz)
 
 export default app;
