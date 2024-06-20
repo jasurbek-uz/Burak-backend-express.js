@@ -10,7 +10,9 @@ import ConnectMongoDb from "connect-mongodb-session";
 
 const MongoDbStore = ConnectMongoDb(session);
 const store = new MongoDbStore({     // Bekzod akanikida MONGODBStore bilan yozilgan menda B=>b kichkina bilan kelyapti
-    uri: String(process.env.MONGO_URL),
+    uri: String(process.env.MONGO_URL),  // shu yerd XATO BOR URL BILAN BOGLIQ DOCUMENTATIONDEKMAS
+    // uri://braveredmi:PFGsplNheMyPFHhn@cluster0.3mre5hw.mongodb.net/Burak
+   
     collection: 'sessions'
   });
 
