@@ -98,7 +98,7 @@ restaurantController.logout = async (
    }
 };
 
-restaurantController.checkoutSession = async(
+restaurantController.checkoutsession = async(
    req: AdminRequest, 
    res: Response
 ) => {
