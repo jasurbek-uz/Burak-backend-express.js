@@ -70,4 +70,4 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
 
 
 
-export default restaurantController;
+export default restaurantController;  
