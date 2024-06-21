@@ -12,7 +12,7 @@ routerAdmin
   .post("/signup", restaurantController.processSignup);
 
 routerAdmin.get('/logout', restaurantController.logout);
-routerAdmin.get('/chek-me', restaurantController.checkoutSession);
+routerAdmin.get('/check-me', restaurantController.checkoutSession);
 //** Product */
 //** User */
 
