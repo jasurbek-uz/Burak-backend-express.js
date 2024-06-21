@@ -10,11 +10,10 @@ const memberService = new MemberService();
 const memberController: T = {};
 
 memberController.signup = async (req: Request, res: Response) => {
-  console.log("req.body:", req.body)
-  try {
-    
+	console.log("req.body:", req.body);
+	try {
 		const input: MemberInput = req.body;
-  
+
 		const result: Member = await memberService.signup(input);
 
 		// TODO: Loyihamizning mana shu qismida Token Authentication integration qilamiz

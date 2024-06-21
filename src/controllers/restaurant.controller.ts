@@ -45,16 +45,18 @@ restaurantController.processSignup = async (
 
 		const newMember: MemberInput = req.body;
 		newMember.memberType = MemberType.RESTAURANT;
+    const result = await memberService.processSignup(newMember);
 
-		const result = await memberService.processSignup(newMember);
-
-		res.send(result);
+    // SESSION AUTHENTICATION
+      req.session.member = result;
+      req.session.save(() => {
+		  res.send(result);
+});
 	} catch (err: any) {
+		console.log("Error, ProcessLogin", err);
 		const message =
-			err instanceof Errors ? err.message : Message.SOMETHING_WENT_WRONG;
-		res.send(
-			`<script>alert(${message}); window.location.replace("admin/signup")</script>`
-		);
+			err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
+		res.send(`<script>alert(${message}); window.location.replace('admin/signup')</script>`);
 	}
 };
 
@@ -63,22 +65,53 @@ restaurantController.processLogin = async (
 	res: Response
 ) => {
 	try {
-		console.log("req.body: ", req.body);
+		console.log("processLogin");
 		const input: LoginInput = req.body;
-
-		console.log("input:", input);
-
 		const result = await memberService.processLogin(input);
 
-		// TODO: Loyihamizning mana shu qismida Session Authentication integration qilamiz
+		// TODO: Session Authentication integration qilamiz
 
-		console.log("result:", result);
-
-		res.send(result);
+		 req.session.member = result;
+			req.session.save(() => {
+				res.send(result);
+			});
 	} catch (err: any) {
-		console.log("Error on processLogin:", err.message);
+		console.log("Error, ProcessLogin", err);
+		const message =
+			err instanceof Error ? err.message : Message.SOMETHING_WENT_WRONG;
+		res.send(`<script>alert(${message}); window.location.replace('admin/signup')</script>`);
+	}
+};
+
+
+restaurantController.logout = async (req: AdminRequest, res: Response) => {
+	try {
+		console.log("logout");
+		req.session.destroy(function () {
+			res.redirect("/admin");
+		});
+	} catch (err) {
+		console.log("Error, ProcessLogin", err);
+		res.redirect("/admin");
+	}
+};
+
+restaurantController.checkoutSession = async (
+	req: AdminRequest,
+	res: Response
+) => {
+	try {
+		console.log("Check");
+		if (req.session?.member)
+			res.send(`<script>alert(${req.session.member.memberNick})</script>`);
+		else res.send(`<script>alert(${Message.NOT_AUTHENTICTED})</script>`);
+	} catch (err) {
+		console.log("Error, Check Auth", err);
 		res.send(err);
 	}
 };
+
+
+
 
 export default restaurantController;

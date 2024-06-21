@@ -36,6 +36,7 @@ export interface LoginInput {
 }
 
 export interface AdminRequest extends Request {
+  body: MemberInput;
 	member: Member;
 	session: Session & { member: Member };
 }
