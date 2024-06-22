@@ -14,7 +14,6 @@ productController.getAllProducts = async (req: Request, res: Response) => {
 
 	} catch (err: any) {
 		console.log(" Error,  getAllProducts: ", err);
-
 		if (err instanceof Errors) res.status(err.code).json(err);
 		else res.status(Errors.standard.code).json(Errors.standard.message);
 	}
