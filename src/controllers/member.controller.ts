@@ -16,7 +16,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
 		const result: Member = await memberService.signup(input);
 
-		// TODO: Loyihamizning mana shu qismida Token Authentication integration qilamiz
+		// TODO: Token Authentication integration qilamiz
 
 		console.log("(member.controller.ts) signup result:", result);
 

@@ -1,4 +1,3 @@
-
 import { T } from "../libs/types/common";
 import Errors from "../libs/Errors";
 import { Request, Response } from "express";
@@ -11,8 +10,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
 	try{
     console.log("getAllproducts");
     res.render("products");
-
-	} catch (err: any) {
+	} catch (err) {
 		console.log(" Error,  getAllProducts: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
 		else res.status(Errors.standard.code).json(Errors.standard.message);
@@ -20,21 +18,20 @@ productController.getAllProducts = async (req: Request, res: Response) => {
 };
 
 productController.createNewProduct = async (req: Request, res: Response) => {
-	console.log("req.body:", req.body);
 	try {
-		console.log("signup");
+    console.log("createNewProduct");
+    res.send("DONE!");
 	} catch (err: any) {
-		console.log(" Error,  getAllProducts: ", err);
+		console.log(" Error,  createNewProduct: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
 		else res.status(Errors.standard.code).json(Errors.standard.message);
 	}
 };
 productController.updateChosenProduct = async (req: Request, res: Response) => {
-	console.log("req.body:", req.body);
 	try {
-		console.log("signup");
+		console.log("updateChosenProduct");
 	} catch (err: any) {
-		console.log(" Error,  getAllProducts: ", err);
+		console.log(" Error,  updateChosenProduct: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
 		else res.status(Errors.standard.code).json(Errors.standard.message);
 	}
