@@ -27,7 +27,7 @@ routerAdmin.post(
 	"/product/create",
 	restaurantController.verifyRestaurant,
   // uploadProductImage.single("productImage"),
-  makeUploader("products").array("productImage", 3),  // single yoki array, multiple uploads qilsa boladi shu joydan 
+  makeUploader("products").array("productImages", 3),  // single yoki array, multiple uploads qilsa boladi shu joydan 
 	productController.createNewProduct
 );
 routerAdmin.post("/product/:id", restaurantController.verifyRestaurant,productController.updateChosenProduct);
