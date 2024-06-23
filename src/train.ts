@@ -1,36 +1,40 @@
 
-//K-task
+/// L-TASK:
+// Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
+// MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
+// function reverseSentence(str: string){
+//   let words = str.split(' ');
+//   let reversedWords = words.map(word => word.split('').reverse().join(''));
+//   return reversedWords.join(' ');
+// }
+
+// console.log(reverseSentence("we like coding!"));
+function reverseString(parametr: string): string {
+	return parametr.split("").reverse().join("");
+}
+
+console.log(reverseString("we like coding")); 
+  
+  // K - task
 // Shunday function yozing, u string qabul qilsin va string 
 //     ichidagi unli harflar sonini qaytarsin.
 //     MASALAN: countVowels("string") return 1; 
 
-function countVowels(word: string) {
-  const vowels = "aeiouAEIOU";
-  let count = 0;
+// function countVowels(word: string) {
+//   const vowels = "aeiouAEIOU";
+//   let count = 0;
 
-  for (const letter of word) {
-    if (vowels.includes(letter)) {
-      count++;
-    }
-  }
+//   for (const letter of word) {
+//     if (vowels.includes(letter)) {
+//       count++;
+//     }
+//   }
 
-  return count; // Simply return the vowel count
-}
+//   return count; // Simply return the vowel count
+// }
 
-const result = countVowels("string");
-console.log(result); // Output: 3 (number of vowels)
-
-
-
-
-
-
-
-
-
-
-
-
+// const result = countVowels("string");
+// console.log(result); // Output: 3 (number of vowels)
 
 
 // J-TASK:
