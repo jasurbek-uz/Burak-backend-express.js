@@ -27,7 +27,7 @@ const makeUploader = (address: string) => {
 
 // single uploads
 
-// const product_storage = multer.diskStorage({
+// const productStorage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, "./uploads/products");
 //   },

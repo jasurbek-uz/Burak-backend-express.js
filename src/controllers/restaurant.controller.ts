@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { Message } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 
 const memberService = new MemberService();
 const restaurantController: T = {};
@@ -41,16 +41,18 @@ restaurantController.processSignup = async (
 	res: Response
 ) => {
 	try {
-		console.log("adminSignup!");
-
-		const newMember: MemberInput = req.body;
+		console.log("ProcessSignup");
+    const file = req.file;
+    if (!file) throw new Error(HttpCode.BAD_REQUEST, Message.SOMETHING_WENT_WRONG);
+    const newMember: MemberInput = req.body;
+    newMember.memberImage = file?.path;
 		newMember.memberType = MemberType.RESTAURANT;
 		const result = await memberService.processSignup(newMember);
 
 		// SESSION AUTHENTICATION
 		req.session.member = result;
-		req.session.save(() => {
-			res.send(result);
+		req.session.save(function () {
+			res.redirect("/admin/product/all");
 		});
 	} catch (err: any) {
 		console.log("Error, ProcessLogin", err);
@@ -67,15 +69,16 @@ restaurantController.processLogin = async (
 	res: Response
 ) => {
 	try {
-		console.log("processLogin");
+    console.log("processLogin");
+    
 		const input: LoginInput = req.body;
 		const result = await memberService.processLogin(input);
 
 		// TODO: Session Authentication integration qilamiz
 
 		req.session.member = result;
-		req.session.save(() => {
-			res.send(result);
+		req.session.save(function (){
+		res.redirect("/admin/product/all");
 		});
 	} catch (err: any) {
 		console.log("Error, ProcessLogin", err);
