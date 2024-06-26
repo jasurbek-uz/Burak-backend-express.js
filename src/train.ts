@@ -1,5 +1,27 @@
+//  M-TASK: 
 
-/// L-TASK:
+// Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+// MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
+
+
+const getSquareNumbers = (arr: number[]) => {
+	return arr.map((num) => ({ number: num, square: num * num }));
+};
+
+const result = getSquareNumbers([1, 2, 3]);
+console.log(result); 
+
+
+
+
+
+
+
+
+
+
+
+// L-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
 // MASALAN: reverseSentence("we like coding!") return "ew ekil gnidoc";
 // function reverseSentence(str: string){
@@ -9,16 +31,16 @@
 // }
 
 // console.log(reverseSentence("we like coding!"));
-function reverseString(parametr: string): string {
-	return parametr.split("").reverse().join("");
-}
+// function reverseString(parametr: string): string {
+// 	return parametr.split("").reverse().join("");
+// }
 
-console.log(reverseString("we like coding")); 
-  
-  // K - task
-// Shunday function yozing, u string qabul qilsin va string 
+// console.log(reverseString("we like coding"));
+
+// K - task
+// Shunday function yozing, u string qabul qilsin va string
 //     ichidagi unli harflar sonini qaytarsin.
-//     MASALAN: countVowels("string") return 1; 
+//     MASALAN: countVowels("string") return 1;
 
 // function countVowels(word: string) {
 //   const vowels = "aeiouAEIOU";
@@ -35,7 +57,6 @@ console.log(reverseString("we like coding"));
 
 // const result = countVowels("string");
 // console.log(result); // Output: 3 (number of vowels)
-
 
 // J-TASK:
 // Shunday function yozing, u string qabul qilsin va
