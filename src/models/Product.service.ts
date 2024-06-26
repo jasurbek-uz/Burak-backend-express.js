@@ -29,7 +29,7 @@ class ProductService {
 			console.error("Error, model:createNewProduct:", err);
 			throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 		}
-	}
+	} 
 
 	public async updateChosenProduct(
 		id: string,

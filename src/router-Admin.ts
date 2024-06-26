@@ -3,8 +3,6 @@ const routerAdmin = express.Router();
 import restaurantController from "./controllers/restaurant.controller";
 import productController from "./controllers/product.controller";
 import  makeUploader  from "./libs/utils/uploader";
-// import {uploadProductImage } from "./libs/utils/uploader";
-
 
 //** Restaurant */
 routerAdmin.get("/", restaurantController.goHome);
@@ -19,9 +17,8 @@ routerAdmin.get('/check-me', restaurantController.checkoutSession);
 
 //** Product */
 routerAdmin.get("/product/all",restaurantController.verifyRestaurant, productController.getAllProducts); // middleware design pattern(oraliq )
-routerAdmin.post("/product/create", restaurantController.verifyRestaurant, // uploadProductImage.single("productImage"),
-  makeUploader("products").array("productImages", 3),  // single yoki array, multiple uploads qilsa boladi shu joydan 
-	productController.createNewProduct
+routerAdmin.post("/product/create", restaurantController.verifyRestaurant, makeUploader("products").array("productImages", 5),
+  productController.createNewProduct
 );
 routerAdmin.post("/product/:id", restaurantController.verifyRestaurant,productController.updateChosenProduct);
 //** User */
