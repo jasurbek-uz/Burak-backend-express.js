@@ -13,17 +13,14 @@ memberController.signup = async (req: Request, res: Response) => {
 	console.log("req.body:", req.body);
 	try {
 		const input: MemberInput = req.body;
-
 		const result: Member = await memberService.signup(input);
 
 		// TODO: Token Authentication integration qilamiz
 
 		console.log("(member.controller.ts) signup result:", result);
-
 		res.json({ member: result });
 	} catch (err: any) {
-		console.log("(member.controller.ts) Error on signup: ", err.message);
-
+		console.log("Error on signup: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
 		else res.status(Errors.standard.code).json(Errors.standard.message);
 	}
