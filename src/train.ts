@@ -1,25 +1,43 @@
-//  M-TASK: 
 
+// N-TASK: 
+// Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
+// MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
+
+const word:string ="dad";
+
+function checkPalindrome(word: string) {
+	const reversed = word.split("").reverse().join("");
+	return word === reversed;
+}
+
+const result = checkPalindrome(word);
+console.log("result:", result);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  M-TASK:
 // Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
 // MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, {number: 2, square: 4}, {number: 3, square: 9}];
 
+// const getSquareNumbers = (arr: number[]) => {
+// 	return arr.map((num) => ({ number: num, square: num * num }));
+// };
 
-const getSquareNumbers = (arr: number[]) => {
-	return arr.map((num) => ({ number: num, square: num * num }));
-};
-
-const result = getSquareNumbers([1, 2, 3]);
-console.log(result); 
-
-
-
-
-
-
-
-
-
-
+// const result = getSquareNumbers([1, 2, 3]);
+// console.log(result); 
 
 // L-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
