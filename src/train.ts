@@ -1,32 +1,46 @@
+// TASK O:
 
-// N-TASK: 
+// Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
+// Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
+
+// MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
+
+function calculateSumOfNumbers(arr: any[]) {
+	return arr.reduce((sum, ele) => {
+		if (typeof ele === "number") {
+			return sum + ele;
+		}
+		return sum;
+	}, 0);
+}
+
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+// N-TASK:
 // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
 // MASALAN: palindromCheck("dad") return true;  palindromCheck("son") return false;
 
-const word:string ="dad";
+// const word:string ="dad";
 
-function checkPalindrome(word: string) {
-	const reversed = word.split("").reverse().join("");
-	return word === reversed;
-}
+// function checkPalindrome(word: string) {
+// 	const reversed = word.split("").reverse().join("");
+// 	return word === reversed;
+// }
 
-const result = checkPalindrome(word);
-console.log("result:", result);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const result = checkPalindrome(word);
+// console.log("result:", result);
 
 //  M-TASK:
 // Shunday function yozing, u raqamlardan tashkil topgan array qabul qilsin va array ichidagi har bir raqam uchun raqamni ozi va hamda osha raqamni kvadratidan tashkil topgan object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
@@ -37,7 +51,7 @@ console.log("result:", result);
 // };
 
 // const result = getSquareNumbers([1, 2, 3]);
-// console.log(result); 
+// console.log(result);
 
 // L-TASK:
 // Shunday function yozing, u string qabul qilsin va string ichidagi hamma sozlarni chappasiga yozib va sozlar ketma-ketligini buzmasdan stringni qaytarsin.
