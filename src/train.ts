@@ -1,32 +1,34 @@
-// TASK O:
+// P-task
+// Shunday function yozing, u object qabul qilsin va arrayni object 
+//    arrayga otkazib arrayni qaytarsin qaytarsin.
+//    MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
+function objectToArray(object:any) {
+	return Object.entries(object);
+}
+
+console.log(objectToArray({ a: 10, b: 20 }));
+
+
+
+
+
+// TASK O:
 // Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
 // Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
 
 // MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
 
-function calculateSumOfNumbers(arr: any[]) {
-	return arr.reduce((sum, ele) => {
-		if (typeof ele === "number") {
-			return sum + ele;
-		}
-		return sum;
-	}, 0);
-}
+// function calculateSumOfNumbers(arr: any[]) {
+// 	return arr.reduce((sum, ele) => {
+// 		if (typeof ele === "number") {
+// 			return sum + ele;
+// 		}
+// 		return sum;
+// 	}, 0);
+// }
 
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
 
 // N-TASK:
 // Shunday function yozing, u string qabul qilsin va string palindrom yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan soz ekanligini aniqlab boolean qiymat qaytarsin.
