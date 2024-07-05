@@ -1,17 +1,42 @@
-// P-task
+
+  // TASK-Q
+// Shunday function yozing, u 2 ta parametrga ega bo'lib
+// birinchisi object, ikkinchisi string bo'lsin.
+// Agar qabul qilinayotgan ikkinchi string, objectning
+// biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
+ 
+const objectCar = {
+  name: "BMW",
+  model: "M3"
+};
+const check = "model";
+
+function hasProperty(object:any, str:any) {
+  return object.hasOwnProperty(str);
+}
+console.log(hasProperty(objectCar, check)); // true
+console.log(hasProperty(objectCar, "year")); // false
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  // P - task
 // Shunday function yozing, u object qabul qilsin va arrayni object 
 //    arrayga otkazib arrayni qaytarsin qaytarsin.
 //    MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
-function objectToArray(object:any) {
-	return Object.entries(object);
-}
+// function objectToArray(object:any) {
+// 	return Object.entries(object);
+// }
 
-console.log(objectToArray({ a: 10, b: 20 }));
-
-
-
-
+// console.log(objectToArray({ a: 10, b: 20 }));
 
 // TASK O:
 // Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
