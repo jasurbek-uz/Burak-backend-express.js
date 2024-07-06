@@ -1,3 +1,29 @@
+//R-task
+// Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
+// MASALAN: calculate("1+3") return 4;
+
+const calculate = (str: string): number => {
+  const fn = new Function('return ' + str);
+  return fn();
+};
+
+console.log(calculate('1+3')); // Output: 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // TASK-Q
 // Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -5,28 +31,18 @@
 // Agar qabul qilinayotgan ikkinchi string, objectning
 // biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
  
-const objectCar = {
-  name: "BMW",
-  model: "M3"
-};
-const check = "model";
+// const objectCar = {
+//   name: "BMW",
+//   model: "M3"
+// };
+// const check = "model";
 
-function hasProperty(object:any, str:any) {
-  return object.hasOwnProperty(str);
-}
-console.log(hasProperty(objectCar, check)); // true
-console.log(hasProperty(objectCar, "year")); // false
+// function hasProperty(object:any, str:any) {
+//   return object.hasOwnProperty(str);
+// }
+// console.log(hasProperty(objectCar, check)); // true
+// console.log(hasProperty(objectCar, "year")); // false
 
-
-
-
-  
-  
-  
-  
-  
-  
-  
   // P - task
 // Shunday function yozing, u object qabul qilsin va arrayni object 
 //    arrayga otkazib arrayni qaytarsin qaytarsin.
