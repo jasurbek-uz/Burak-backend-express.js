@@ -1,39 +1,65 @@
-// S-TASK:
+// T-TASK:
+
+// Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
+// MASALAN: mergeSortedArrays([0,3,4,31], [0,3,4,3]); return [0,3,4,4,6,30,31]
+
+function mergeSortedArrays(arr1:any, arr2:any) {
+	const merged = [];
+	let i = 0;
+	let j = 0;
+
+	while (i < arr1.length && j < arr2.length) {
+		merged.push(arr1[i] < arr2[j] ? arr1[i++] : arr2[j++]);
+	}
+	return merged.concat(arr1.slice(i), arr2.slice(j));
+}
+
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  // S - TASK:
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
-function findMissingNumbers(arr:number[]) {
-	const missingNumbers = [1, 3, 4, 5, 7, 10];
-	let expected = arr[0];
+// function findMissingNumbers(arr:number[]) {
+// 	const missingNumbers = [1, 3, 4, 5, 7, 10];
+// 	let expected = arr[0];
 
-	for (let i = 0; i < arr.length; i++) {
+// 	for (let i = 0; i < arr.length; i++) {
 		
-		while (arr[i] > expected) {
-			missingNumbers.push(expected);
-			expected++;
-		}
-		expected = arr[i] + 1;
-	}
+// 		while (arr[i] > expected) {
+// 			missingNumbers.push(expected);
+// 			expected++;
+// 		}
+// 		expected = arr[i] + 1;
+// 	}
 
-	return missingNumbers.length ? missingNumbers : "1, 3, 4, 5, 7, 10";
-}
+// 	return missingNumbers.length ? missingNumbers : "1, 3, 4, 5, 7, 10";
+// }
 
-const arr = [1, 3, 4, 5, 7, 10];
-const missingNumbers = findMissingNumbers(arr);
-console.log(missingNumbers);
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const arr = [1, 3, 4, 5, 7, 10];
+// const missingNumbers = findMissingNumbers(arr);
+// console.log(missingNumbers);
 
 //R-task
 // Shunday function yozing, u string parametrga ega bolsin. String "1+2" holatda pass qilinganda string ichidagi sonlar yigindisini number holatda qaytarsin.
