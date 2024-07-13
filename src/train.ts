@@ -1,43 +1,53 @@
-// T-TASK:
+// TASK U
+
+// Shunday function tuzing, uni number parametri bo'lsin.
+// Va bu function berilgan parametrgacha, 0'dan boshlab
+// oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+// MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+const sumOdda = (num: number): number => {
+	let sum = 0;
+	for (let i = 1; i <= num; i += 2) {
+		sum += i;
+	}
+	return sum;
+};
+
+console.log(sumOdda(5));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// T - TASK:
 
 // Shunday function yozing, u sonlardan tashkil topgan 2 ta array qabul qilsin va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin
 // MASALAN: mergeSortedArrays([0,3,4,31], [0,3,4,3]); return [0,3,4,4,6,30,31]
 
-function mergeSortedArrays(arr1:any, arr2:any) {
-	const merged = [];
-	let i = 0;
-	let j = 0;
+// function mergeSortedArrays(arr1:any, arr2:any) {
+// 	const merged = [];
+// 	let i = 0;
+// 	let j = 0;
 
-	while (i < arr1.length && j < arr2.length) {
-		merged.push(arr1[i] < arr2[j] ? arr1[i++] : arr2[j++]);
-	}
-	return merged.concat(arr1.slice(i), arr2.slice(j));
-}
+// 	while (i < arr1.length && j < arr2.length) {
+// 		merged.push(arr1[i] < arr2[j] ? arr1[i++] : arr2[j++]);
+// 	}
+// 	return merged.concat(arr1.slice(i), arr2.slice(j));
+// }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  // S - TASK:
+// S - TASK:
 // Shunday function yozing, u numberlardan tashkil topgan array qabul qilsin va osha numberlar orasidagi tushib qolgan sonni topib uni return qilsin
 // MASALAN: missingNumber([3, 0, 1]) return 2
 
@@ -46,7 +56,7 @@ console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 // 	let expected = arr[0];
 
 // 	for (let i = 0; i < arr.length; i++) {
-		
+
 // 		while (arr[i] > expected) {
 // 			missingNumbers.push(expected);
 // 			expected++;
@@ -72,12 +82,12 @@ console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 // console.log(calculate('1+3')); // Output: 3
 
-  // TASK-Q
+// TASK-Q
 // Shunday function yozing, u 2 ta parametrga ega bo'lib
 // birinchisi object, ikkinchisi string bo'lsin.
 // Agar qabul qilinayotgan ikkinchi string, objectning
 // biror bir propertysiga mos kelsa, 'true', aks holda mos kelmasa 'false' qaytarsin.
- 
+
 // const objectCar = {
 //   name: "BMW",
 //   model: "M3"
@@ -90,8 +100,8 @@ console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 // console.log(hasProperty(objectCar, check)); // true
 // console.log(hasProperty(objectCar, "year")); // false
 
-  // P - task
-// Shunday function yozing, u object qabul qilsin va arrayni object 
+// P - task
+// Shunday function yozing, u object qabul qilsin va arrayni object
 //    arrayga otkazib arrayni qaytarsin qaytarsin.
 //    MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
