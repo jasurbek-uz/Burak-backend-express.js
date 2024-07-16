@@ -1,3 +1,53 @@
+// V-TASK:
+
+// Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
+// MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+
+function countChars(str: string): Record<string, number> {
+  const charCounts: Record<string, number> = {}; 
+  for (const char of str) {
+    charCounts[char] = (charCounts[char] || 0) + 1; 
+  }
+  return charCounts;
+}
+
+console.log(countChars("hello")); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // TASK U
 
 // Shunday function tuzing, uni number parametri bo'lsin.
@@ -6,28 +56,15 @@
 
 // MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
-const sumOdda = (num: number): number => {
-	let sum = 0;
-	for (let i = 1; i <= num; i += 2) {
-		sum += i;
-	}
-	return sum;
-};
+// const sumOdda = (num: number): number => {
+// 	let sum = 0;
+// 	for (let i = 1; i <= num; i += 2) {
+// 		sum += i;
+// 	}
+// 	return sum;
+// };
 
-console.log(sumOdda(5));
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(sumOdda(5));
 
 // T - TASK:
 
