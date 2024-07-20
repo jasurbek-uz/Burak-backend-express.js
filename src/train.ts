@@ -1,34 +1,57 @@
+// X-TASK:
 
-// W-TASK:
+//  Shunday function yozing, uni object va string parapetrlari bolsin.
+// Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin(nested object bolsa ham sanasin)
+//  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
+
+  const countOccurrences = (obj:any, str:any) => {
+		let count = 0;
+		const traverse = (currentObj:any) => {
+			for (const key in currentObj) {
+				if (key === str) count++;
+				if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
+					traverse(currentObj[key]);
+				}
+			}
+		};
+		traverse(obj);
+		return count;
+	};
+
+	console.log(countOccurrences({model: "Bugatti",steer: { model: "HANKOOK", size: 30, type: { model: "34" } },},"model"));
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // W - TASK:
 
 // Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
 // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
 
-function chunkArray(arr:any, chunkSize:any) {
-  const chunks = [];
-  for (let i = 0; i < arr.length; i += chunkSize) {
-    chunks.push(arr.slice(i, i + chunkSize));
-  }
-  return chunks;
-}
+// function chunkArray(arr:any, chunkSize:any) {
+//   const chunks = [];
+//   for (let i = 0; i < arr.length; i += chunkSize) {
+//     chunks.push(arr.slice(i, i + chunkSize));
+//   }
+//   return chunks;
+// }
 
-console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); 
 
 // V-TASK:
 
