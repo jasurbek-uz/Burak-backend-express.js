@@ -15,7 +15,7 @@ const memberController: T = {};
 memberController.signup = async (req: Request, res: Response) => {
 	console.log("req.body:", req.body);
 	try {
-		const input: MemberInput = req.body;
+    const input: MemberInput = req.body;
     const result: Member = await memberService.signup(input);
     const token = await authService.createToken(result);
     console.log("token:", token);
@@ -28,15 +28,14 @@ memberController.signup = async (req: Request, res: Response) => {
 		else res.status(Errors.standard.code).json(Errors.standard.message);
 	}
 };
+
 memberController.login = async (req: Request, res: Response) => {
 	try {
 		console.log("(member.controller.ts) req.body:", req.body);
 		const input: LoginInput = req.body;
-
     const result = await memberService.login(input),
-      token = await authService.createToken(result);
-    console.log("token =>", token)
-    
+    token = await authService.createToken(result);
+    console.log("token =>", token)  
     res.cookie("accessToken", token, { maxAge: AUTH_TIMER * 3600 * 1000, httpOnly: false, });
 
     res.status(HttpCode.OK).json({ member: result, accessToken: token });
