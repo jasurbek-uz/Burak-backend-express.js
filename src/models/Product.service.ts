@@ -6,6 +6,7 @@ import Errors from "../libs/Errors";
 import { shapeInputMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enums/product.enum";
 import { T } from "../libs/types/common";
+import { ObjectId } from "mongoose";
 
 class ProductService {
   static getProducts(inquiry: ProductInquiry) { // shu yerda getProductsni methodni automatic chaqirvoryapti texnik xatolik 
@@ -22,6 +23,10 @@ class ProductService {
     const match: T = { ProductStatus:ProductStatus.PROCESS };
     if (inquiry.productCollection)
       match.productCollect = inquiry.productCollection;
+    if (inquiry.search) {
+      match.productName = { $regex: new RegExp(inquiry.search, "i") };
+    }
+
     const sort: T = inquiry.order === "productPrice"
       ? { [inquiry.order]: 1 }
       : { [inquiry.order]: - 1 };
@@ -37,7 +42,18 @@ class ProductService {
     return result;
   }
 
+  public async getProduct(meemberId:ObjectId | null, id:string ): Promise<Product>{
+    const productId = shapeInputMongooseObjectId(id);
 
+    let result = await this.productModel.findOne({ _id: productId, productStatus: ProductStatus.PROCESS, })
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+   // TODO: if authenticated users=>first => view log creation
+
+    return result;
+  }
+  
 
 
 
