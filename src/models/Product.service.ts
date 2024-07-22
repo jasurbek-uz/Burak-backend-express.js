@@ -8,6 +8,9 @@ import { ProductStatus } from "../libs/enums/product.enum";
 import { T } from "../libs/types/common";
 
 class ProductService {
+  static getProducts(inquiry: ProductInquiry) { // shu yerda getProductsni methodni automatic chaqirvoryapti texnik xatolik 
+    throw new Error("Method not implemented.");
+  }
 	private readonly productModel;
   
 	constructor() {
