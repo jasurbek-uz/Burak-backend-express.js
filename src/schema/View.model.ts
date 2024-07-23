@@ -11,6 +11,7 @@ const viewSchema = new Schema(
 
     memberId: {
       type: Schema.Types.ObjectId,
+      required:true,
       ref: "Member",
     },
     viewFefId: {
@@ -19,7 +20,6 @@ const viewSchema = new Schema(
     },
   },
   {timestamps: true}
-  
   );
 
 export default mongoose.model("View", viewSchema)

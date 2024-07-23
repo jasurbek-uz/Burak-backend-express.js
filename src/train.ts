@@ -1,42 +1,52 @@
+
+// Y-TASK:
+
+//  Shunday function yozing, uni 2 ta array parapetri bolsin. 
+//Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
+//  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+
+const findIntersection = (arr1:any, arr2:any) => {
+  return arr1.filter((num: any) => arr2.includes(num));
+};
+
+console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // X-TASK:
 
 //  Shunday function yozing, uni object va string parapetrlari bolsin.
 // Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin(nested object bolsa ham sanasin)
 //  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
 
-  const countOccurrences = (obj:any, str:any) => {
-		let count = 0;
-		const traverse = (currentObj:any) => {
-			for (const key in currentObj) {
-				if (key === str) count++;
-				if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
-					traverse(currentObj[key]);
-				}
-			}
-		};
-		traverse(obj);
-		return count;
-	};
+  // const countOccurrences = (obj:any, str:any) => {
+	// 	let count = 0;
+	// 	const traverse = (currentObj:any) => {
+	// 		for (const key in currentObj) {
+	// 			if (key === str) count++;
+	// 			if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
+	// 				traverse(currentObj[key]);
+	// 			}
+	// 		}
+	// 	};
+	// 	traverse(obj);
+	// 	return count;
+	// };
 
-	console.log(countOccurrences({model: "Bugatti",steer: { model: "HANKOOK", size: 30, type: { model: "34" } },},"model"));
-
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+// console.log(countOccurrences({model: "Bugatti",steer: { model: "HANKOOK", size: 30, type: { model: "34" } },},"model"));
   
   // W - TASK:
 

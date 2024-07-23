@@ -13,12 +13,13 @@ const productController: T = {};
 productController.getProducts = async (req:Request, res:Response) => {
   try {
     console.log("getProducts");
-    // const query = req.query;
-    // console.log("req.query:", query);
-    // const params = req.params;
-    // console.log("req.params:", params);
+    const query = req.query;
+    console.log("req.query:", query);
+    const params = req.params;
+    console.log("req.params:", params);
     const { page, limit, order, productCollection, search } = req.query;
     console.log(`page:${page}, order: ${order}`);
+    console.log(req.query);
     const inquiry: ProductInquiry = {
       order: String(order),
       page: Number(page),
@@ -28,7 +29,7 @@ productController.getProducts = async (req:Request, res:Response) => {
     if (search) inquiry.search = String(search);
     const result = await ProductService.getProducts(inquiry);
 
-    res.status(HttpCode.OK).json({ result });
+    res.status(HttpCode.OK).json(result);
 	} catch (err) {
 		console.log(" Error,  getProducts: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
@@ -41,10 +42,10 @@ productController.getProduct = async (req: ExtendedRequest, res: Response) => {
     console.log("getProduct");
     const { id } = req.params;
     console.log("req.member");
-    const meemberId = req.member?._id ?? null,
-      result = await productService.getProduct(meemberId, id);
+    const memberId = req.member?._id ?? null,
+      result = await productService.getProduct(memberId, id);
     
-      res.status(HttpCode.OK).json({result });
+      res.status(HttpCode.OK).json(result );
 	} catch (err) {
 		console.log(" Error,  getProduct: ", err);
 		if (err instanceof Errors) res.status(err.code).json(err);
