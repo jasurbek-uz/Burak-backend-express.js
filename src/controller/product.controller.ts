@@ -13,10 +13,6 @@ const productController: T = {};
 productController.getProducts = async (req:Request, res:Response) => {
   try {
     console.log("getProducts");
-    const query = req.query;
-    console.log("req.query:", query);
-    const params = req.params;
-    console.log("req.params:", params);
     const { page, limit, order, productCollection, search } = req.query;
     console.log(`page:${page}, order: ${order}`);
     console.log(req.query);
@@ -27,7 +23,7 @@ productController.getProducts = async (req:Request, res:Response) => {
     };
     if (productCollection) { inquiry.productCollection = productCollection as ProductCollection; }
     if (search) inquiry.search = String(search);
-    const result = await ProductService.getProducts(inquiry);
+    const result = await productService.getProducts(inquiry);
 
     res.status(HttpCode.OK).json(result);
 	} catch (err) {
