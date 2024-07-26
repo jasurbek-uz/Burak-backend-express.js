@@ -1,4 +1,38 @@
 
+// Z-TASK:
+
+//   Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. 
+//   Function arraydagi juft sonlarni yigindisini qaytarsin
+//   MASALAN: sumEvens([1,2,3]) return 2 
+
+function sumEvens(arr:any) {
+	let sum = 0;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 === 0) {
+			sum += arr[i];
+		}
+	}
+	return sum;
+}
+
+console.log(sumEvens([2, 4, 6, 7, 8, 9, 45]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Y-TASK:
 
 //  Shunday function yozing, uni 2 ta array parapetri bolsin. 
@@ -6,25 +40,11 @@
 //  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
 
 
-const findIntersection = (arr1:any, arr2:any) => {
-  return arr1.filter((num: any) => arr2.includes(num));
-};
+// const findIntersection = (arr1:any, arr2:any) => {
+//   return arr1.filter((num: any) => arr2.includes(num));
+// };
 
-console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(findIntersection([1, 2, 3, 0], [3, 2, 0]));
 
 // X-TASK:
 

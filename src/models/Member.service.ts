@@ -3,7 +3,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import { LoginInput, Member, MemberInput, MemberUpdateInput } from "../libs/types/member";
 import MemberModel from "../schema/Member.model";
-import { shapeInputMongooseObjectId } from "../libs/config";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class MemberService {
 	private readonly memberModel;
@@ -12,15 +12,15 @@ class MemberService {
 	}
 	/** Spa*/
 
-  public async getRestaurant(): Promise<Member>{
-    const result = await this.memberModel
-      .findOne({ memberType: MemberType.RESTAURANT })
-      .lean()
-      .exec();
-    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
-    
-    return result;
-  }
+	public async getRestaurant(): Promise<Member> {
+		const result = await this.memberModel
+			.findOne({ memberType: MemberType.RESTAURANT })
+			.lean()
+			.exec();
+		if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+		return result;
+	}
 
 	public async signup(input: MemberInput): Promise<Member> {
 		const salt = await bcrypt.genSalt();
@@ -67,7 +67,7 @@ class MemberService {
 	}
 
 	public async getMemberDetail(member: Member): Promise<Member> {
-		const memberId = shapeInputMongooseObjectId(member._id);
+		const memberId = shapeIntoMongooseObjectId(member._id);
 		const result = await this.memberModel
 			.findOne({ _id: memberId, memberStatus: MemberStatus.ACTIVE })
 			.exec();
@@ -79,7 +79,7 @@ class MemberService {
 		member: Member,
 		input: MemberUpdateInput
 	): Promise<Member> {
-		const memberId = shapeInputMongooseObjectId(member._id);
+		const memberId = shapeIntoMongooseObjectId(member._id);
 		const result = await this.memberModel
 			.findOneAndUpdate({ _id: memberId }, input, { new: true })
 			.exec();
@@ -95,7 +95,23 @@ class MemberService {
 			.exec();
 		if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
-    return result;
+		return result;
+	}
+
+	public async addUserPoint(member: Member, point: number): Promise<Member> {
+		const memberId = shapeIntoMongooseObjectId(member._id);
+
+		return await this.memberModel
+			.findOneAndUpdate(
+				{
+					_id: memberId,
+					memberType: MemberType.USER,
+					memberStatus: MemberStatus.ACTIVE,
+				},
+				{ $inc: { memberPoints: point } },
+				{ new: true }
+			)
+			.exec();
 	}
 
 	//BSSR
@@ -154,7 +170,7 @@ class MemberService {
 		return result;
 	}
 	public async updateChosenUser(input: MemberUpdateInput): Promise<Member[]> {
-		input._id = shapeInputMongooseObjectId(input._id);
+		input._id = shapeIntoMongooseObjectId(input._id);
 		const result = await this.memberModel
 			.findByIdAndUpdate({ _id: input._id }, input, { new: true })
 			.exec();
