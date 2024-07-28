@@ -1,36 +1,41 @@
 
+// ZB-TASK:
+
+// Shunday function yozing, uni 2 ta number parametri bolsin va berilgan
+// sonlar orasidan random raqam return qilsin MASALAN: randomBetween(30, 50)
+// return 45
+
+const randomBetween = (min: number, max: number): number => {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+console.log(randomBetween(30, 50));
+
+
+
+
+
+
+
+
+
 // Z-TASK:
 
 //   Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. 
 //   Function arraydagi juft sonlarni yigindisini qaytarsin
 //   MASALAN: sumEvens([1,2,3]) return 2 
 
-function sumEvens(arr:any) {
-	let sum = 0;
-	for (let i = 0; i < arr.length; i++) {
-		if (arr[i] % 2 === 0) {
-			sum += arr[i];
-		}
-	}
-	return sum;
-}
+// function sumEvens(arr:any) {
+// 	let sum = 0;
+// 	for (let i = 0; i < arr.length; i++) {
+// 		if (arr[i] % 2 === 0) {
+// 			sum += arr[i];
+// 		}
+// 	}
+// 	return sum;
+// }
 
-console.log(sumEvens([2, 4, 6, 7, 8, 9, 45]));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(sumEvens([2, 4, 6, 7, 8, 9, 45]));
 
 
 // Y-TASK:
