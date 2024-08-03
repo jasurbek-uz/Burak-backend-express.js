@@ -1,25 +1,46 @@
+// ZD-TASK:
+
+// Shunday function yozing, uni number, array va number parametrlari bolsin
+// va berilgan 1 - parametr numberga teng indexni array ichidan topib 3 -
+// parametrdagi raqam bilan almashtirib yangilangan arrayni qaytarsin
+// MASALAN: changeNumberInArray(1, [1,3,7,2], 2) return [1,2,7,2]
+
+
+
+function changeNumberInArray(index: any, arr: any, newValue: number) {
+  return arr.map((num: any, i: any) => i === index ? newValue : num);
+}
+
+const result = changeNumberInArray(1, [1, 3, 7, 2], 2);
+console.log(result); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ZC- TASK
 // Shunday function yozing, uni number parametri bolsin va
 //function qabul parametrni selsiy miqdori sifatida qabul qilib uni parenitga ozgartirib bersin
 //  MASALAN: celsiusToFahrenheit(0) return 32
 
-const celsiusToFahrenheit = function (celsius:number) {
-	return (celsius * 9) / 5 + 32;
-};
-console.log(celsiusToFahrenheit(1));
-
-
-
-
-
-
-
-
-
-
-
-
-
+// const celsiusToFahrenheit = function (celsius:number) {
+// 	return (celsius * 9) / 5 + 32;
+// };
+// console.log(celsiusToFahrenheit(1));
 
 
 // ZB-TASK:
