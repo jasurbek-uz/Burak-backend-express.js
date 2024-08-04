@@ -6,7 +6,6 @@ import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import cookieParser  from "cookie-parser";
 import { MORGAN_FORMAT } from "./libs/config";
-
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
@@ -49,7 +48,6 @@ app.use(function (req, res, next) {
 });
 
 /** 3-VIEWS **/
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
