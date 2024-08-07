@@ -1,38 +1,50 @@
+// ZF-TASK:
+
+// Shunday function yozing, uni string parametri bolsin.
+// String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+// MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+function capitalizeWords(input: string): string {
+	return input
+		.split(" ")
+		.map((word) =>
+			word.length > 2 ? word[0].toUpperCase() + word.slice(1) : word
+		)
+		.join(" ");
+}
+
+console.log(capitalizeWords("name should be a string"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ZE-TASK:
 
 // Shunday function yozing, uni  string parametri bolsin. String ichida takrorlangan harflarni olib tashlab qolganini qaytarsin
 // MASALAN: removeDuplicate('stringg') return 'string'
 
-
-function removeDuplicate(str:string) {
-	let newStr = "";
-	for (let char of str) {
-		if (!newStr.includes(char)) newStr += char;
-	}
-	return newStr;
-}
-console.log(removeDuplicate('stringgggg'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function removeDuplicate(str:string) {
+// 	let newStr = "";
+// 	for (let char of str) {
+// 		if (!newStr.includes(char)) newStr += char;
+// 	}
+// 	return newStr;
+// }
+// console.log(removeDuplicate('stringgggg'))
 
 // ZD-TASK:
 
@@ -46,7 +58,7 @@ console.log(removeDuplicate('stringgggg'))
 // }
 
 // const result = changeNumberInArray(1, [1, 3, 7, 2], 2);
-// console.log(result); 
+// console.log(result);
 
 // ZC- TASK
 // Shunday function yozing, uni number parametri bolsin va
@@ -57,7 +69,6 @@ console.log(removeDuplicate('stringgggg'))
 // 	return (celsius * 9) / 5 + 32;
 // };
 // console.log(celsiusToFahrenheit(1));
-
 
 // ZB-TASK:
 
@@ -73,9 +84,9 @@ console.log(removeDuplicate('stringgggg'))
 
 // Z-TASK:
 
-//   Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin. 
+//   Shunday function yozing, uni sonlardan tashkil topgan array qabul qilsin.
 //   Function arraydagi juft sonlarni yigindisini qaytarsin
-//   MASALAN: sumEvens([1,2,3]) return 2 
+//   MASALAN: sumEvens([1,2,3]) return 2
 
 // function sumEvens(arr:any) {
 // 	let sum = 0;
@@ -89,13 +100,11 @@ console.log(removeDuplicate('stringgggg'))
 
 // console.log(sumEvens([2, 4, 6, 7, 8, 9, 45]));
 
-
 // Y-TASK:
 
-//  Shunday function yozing, uni 2 ta array parapetri bolsin. 
+//  Shunday function yozing, uni 2 ta array parapetri bolsin.
 //Function ikkala arrayda ham ishtirok etgan qiymatlarni bir arrayda qaytarsin
 //  MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
-
 
 // const findIntersection = (arr1:any, arr2:any) => {
 //   return arr1.filter((num: any) => arr2.includes(num));
@@ -109,23 +118,23 @@ console.log(removeDuplicate('stringgggg'))
 // Function string parametri object ichida necha marotaba takrorlanganligini qaytarsin(nested object bolsa ham sanasin)
 //  MASALAN: countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model') return 2
 
-  // const countOccurrences = (obj:any, str:any) => {
-	// 	let count = 0;
-	// 	const traverse = (currentObj:any) => {
-	// 		for (const key in currentObj) {
-	// 			if (key === str) count++;
-	// 			if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
-	// 				traverse(currentObj[key]);
-	// 			}
-	// 		}
-	// 	};
-	// 	traverse(obj);
-	// 	return count;
-	// };
+// const countOccurrences = (obj:any, str:any) => {
+// 	let count = 0;
+// 	const traverse = (currentObj:any) => {
+// 		for (const key in currentObj) {
+// 			if (key === str) count++;
+// 			if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
+// 				traverse(currentObj[key]);
+// 			}
+// 		}
+// 	};
+// 	traverse(obj);
+// 	return count;
+// };
 
 // console.log(countOccurrences({model: "Bugatti",steer: { model: "HANKOOK", size: 30, type: { model: "34" } },},"model"));
-  
-  // W - TASK:
+
+// W - TASK:
 
 // Shunday function yozing, uni array va number parametrlari bolsin. Function arrayni numberda berilgan uzunlikda kesib bolaklarga ajratilgan array holatida qaytarsin
 // MASALAN: chunkArray([1,2,3,4,5,6,7,8,9,10], 3) return [[1,2,3], [4,5,6], [7,8,9], [10]]
@@ -138,23 +147,22 @@ console.log(removeDuplicate('stringgggg'))
 //   return chunks;
 // }
 
-// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3)); 
+// console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
 // V-TASK:
 
 // Shunday function yozing, uni string parametri bolsin va stringdagi harf va u harf necha marta takrorlangani sonidan tashkil topgan object qaytarsin.
 // MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
-
 // function countChars(str: string): Record<string, number> {
-//   const charCounts: Record<string, number> = {}; 
+//   const charCounts: Record<string, number> = {};
 //   for (const char of str) {
-//     charCounts[char] = (charCounts[char] || 0) + 1; 
+//     charCounts[char] = (charCounts[char] || 0) + 1;
 //   }
 //   return charCounts;
 // }
 
-// console.log(countChars("hello")); 
+// console.log(countChars("hello"));
 
 // TASK U
 
