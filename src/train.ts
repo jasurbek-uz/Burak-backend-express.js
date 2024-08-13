@@ -1,42 +1,58 @@
+// ZI-TASK:
+
+// Shunday function yozing, u function ishga tushgandan 3 soniyadan keyin "Hello World"
+// ni qaytarsin. MASALAN: delayHelloWorld("Hello World") return "Hello World"
+
+function delayHelloWorld(str:string) {
+	setTimeout(function () {
+		console.log(str);
+	}, 3000);
+}
+
+delayHelloWorld("Hello World");
+
+console.log("");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ZH-TASK:
 
 // Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin.
 // MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
-function findDisappearedNumbers(nums:number[]) {
-	const numSet = new Set(nums);
-	const result = [];
+// function findDisappearedNumbers(nums:number[]) {
+// 	const numSet = new Set(nums);
+// 	const result = [];
 
-	for (let i = 1; i <= nums.length; i++) {
-		if (!numSet.has(i)) {
-			result.push(i);
-		}
-	}
+// 	for (let i = 1; i <= nums.length; i++) {
+// 		if (!numSet.has(i)) {
+// 			result.push(i);
+// 		}
+// 	}
 
-	return result;
-}
+// 	return result;
+// }
 
-console.log(findDisappearedNumbers([1, 7, 8, 9]));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(findDisappearedNumbers([1, 7, 8, 9]));
 
 // ZG-TASK:
 
@@ -44,14 +60,13 @@ console.log(findDisappearedNumbers([1, 7, 8, 9]));
 // MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 
 //function capitalizeWords(str:string) {
-  // stringga ajratish
-  //const words = str.split(/\s+/);
-  // kichkina harfga ozgartirish keyin _ qoshish
- // return words.map(word => word.toLowerCase()).join('_');
+// stringga ajratish
+//const words = str.split(/\s+/);
+// kichkina harfga ozgartirish keyin _ qoshish
+// return words.map(word => word.toLowerCase()).join('_');
 //}
 
-//console.log(capitalizeWords('name should be a string')); 
-
+//console.log(capitalizeWords('name should be a string'));
 
 // ZF-TASK:
 
@@ -69,8 +84,6 @@ console.log(findDisappearedNumbers([1, 7, 8, 9]));
 // }
 
 // console.log(capitalizeWords("name should be a string"));
-
-
 
 // ZE-TASK:
 
